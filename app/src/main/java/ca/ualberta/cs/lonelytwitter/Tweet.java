@@ -6,11 +6,9 @@ public abstract class Tweet {
     protected Date date;
     public Tweet(String message){
         this.message = message;
-    }
-    public Tweet (String message, Date date){
-        this.message = message;
         this.date = new Date();
     }
+
     public void setMessage(String message) throws TooLongTweetException{
         if (message.length()>140){
             throw new TooLongTweetException();
@@ -22,4 +20,7 @@ public abstract class Tweet {
         return this.date;
     }
     public abstract Boolean isImportant();
+    public String toString(){
+        return this.date.toString()+" | "+ this.message;
+    }
 }

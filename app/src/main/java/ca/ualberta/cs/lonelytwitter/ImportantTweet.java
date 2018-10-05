@@ -1,3 +1,11 @@
+/*
+ *Class Name: Important Activity
+ *
+ * Author: Zhongaho Lu
+ *
+ * Version 1.0
+ *
+ */
 package ca.ualberta.cs.lonelytwitter;
 
 public class ImportantTweet extends Tweet {
@@ -7,7 +15,6 @@ public class ImportantTweet extends Tweet {
 
     @Override
     public Boolean isImportant(){
-
         return true;
     }
 }

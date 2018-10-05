@@ -1,3 +1,4 @@
+
 package ca.ualberta.cs.lonelytwitter;
 
 public class Calm extends Mood {

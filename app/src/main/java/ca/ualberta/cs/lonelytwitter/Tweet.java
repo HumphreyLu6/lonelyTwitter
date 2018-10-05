@@ -1,3 +1,16 @@
+/**
+ *Tweet
+ *
+ *@Version 1.0
+ *
+ * @author Zhonghao Lu
+ *
+ * @see java.io
+ *
+ * Sep. 29th 2018
+ *
+ *
+ */
 package ca.ualberta.cs.lonelytwitter;
 
 import java.util.Date;
@@ -20,6 +33,7 @@ public abstract class Tweet {
         return this.date;
     }
     public abstract Boolean isImportant();
+
     public String toString(){
         return this.date.toString()+" | "+ this.message;
     }

@@ -1,3 +1,11 @@
+/*
+ * Class Name: LonelyTwitterActivity
+ *
+ * Author: Zhongaho Lu
+ *
+ * Version 1.0
+ *
+ */
 package ca.ualberta.cs.lonelytwitter;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -25,6 +33,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class LonelyTwitterActivity extends Activity {
+
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
@@ -74,11 +83,18 @@ public class LonelyTwitterActivity extends Activity {
 		super.onStart();
 
 		loadFromFile();//
-		adapter = new ArrayAdapter<Tweet>(this,
-				R.layout.list_item, tweets);
+		adapter = new ArrayAdapter<Tweet>(this, R.layout.list_item, tweets);
 		oldTweetsList.setAdapter(adapter);//oldTweetsLists are the listview, we need to refresh them.
 
 	}
+
+	/**
+	 * Lonely tweeter class runs the main application activity
+	 *
+	 * @author: Zhonghao Lu
+	 * @see java.io
+	 *
+	 */
 
 	private void loadFromFile() {
 		//ArrayList<String> tweets = new ArrayList<String>();
@@ -91,12 +107,12 @@ public class LonelyTwitterActivity extends Activity {
 			Type typeListTweets = new TypeToken<ArrayList<ImportantTweet>>(){}.getType();//TypeToken cannot be subclass, you can not
 			//create instance who is not superclass.
 			tweets=gson.fromJson(reader, typeListTweets);
-
-			}
+		}
 		catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -122,5 +138,7 @@ public class LonelyTwitterActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
+
+
 
 }

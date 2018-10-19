@@ -3,31 +3,33 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by watts1 on 9/13/16.
+ * Created by romansky on 1/12/16.
  */
 public abstract class Tweet {
-    private String message;
-    private Date date;
+    protected Date date;
+    protected String message;
 
-    public Tweet(String message){
+    public abstract Boolean isImportant();
+
+    public Tweet(Date date, String message) {
+        this.date = date;
+        this.message = message;
+    }
+
+    public Tweet(String message) {
         this.message = message;
         this.date = new Date();
     }
 
-    public Tweet(String message, Date date){
-        this.message = message;
-        this.date = date;
+    public Date getDate() {
+        return this.date;
     }
 
-
-    public abstract Boolean isImportant();
-
-
-
-
+    public String getMessage() {
+        return this.message;
+    }
     public void setMessage(String message) throws TweetTooLongException {
         if (message.length() > 140) {
-            //Do something
             throw new TweetTooLongException();
         }
         this.message = message;
@@ -37,16 +39,8 @@ public abstract class Tweet {
         this.date = date;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
     @Override
     public String toString(){
-        return  date.toString() + " | " + message;
+        return date.toString() + " | " + message;
     }
 }
